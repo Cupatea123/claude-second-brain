@@ -1,0 +1,45 @@
+filters:
+  or:
+    - 'type == "session"'
+    - 'type == "review"'
+properties:
+  kind:
+    displayName: Kind
+  source:
+    displayName: Source
+  outcome:
+    displayName: Outcome
+  project:
+    displayName: Owner note
+  digested:
+    displayName: Digested
+views:
+  - type: table
+    name: "Recent"
+    limit: 30
+    order:
+      - file.name
+      - kind
+      - source
+      - outcome
+      - project
+  - type: table
+    name: "Chats not digested"
+    filters:
+      and:
+        - 'kind == "chat"'
+        - 'digested == false'
+    order:
+      - file.name
+      - project
+      - source
+  - type: table
+    name: "Agent runs"
+    filters:
+      and:
+        - 'kind == "agent-run"'
+    order:
+      - file.name
+      - outcome
+      - task
+      - project

@@ -1,0 +1,20 @@
+filters:
+  and:
+    - 'type == "decision"'
+properties:
+  status:
+    displayName: Status
+  project:
+    displayName: Owner note
+  created:
+    displayName: Created
+views:
+  - type: table
+    name: "Decisions"
+    groupBy:
+      property: project
+      direction: ASC
+    order:
+      - file.name
+      - status
+      - created

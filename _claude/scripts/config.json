@@ -1,0 +1,27 @@
+{
+  "_comment": "Engine config for brain.js. owner_name: how notes and messages name you; owner_key: the task `owner:` value that means you; agent_owners: the other allowed owners. code_root: where new project folders are created. scan_roots/scan_ignore: folder scan for code no note mentions. work_roots/work_keywords: the wall — hooks stay silent and importers skip when a session or chat is work. projects: keywords for the classifier and the chat importer (name and alias matches score 3, keywords 1). scheduled_tasks: which area's Run Log a Claude scheduled task reports to. pipeline_prompts: regexes for the first prompt of headless pipeline calls (claude -p); sweep and import skip them. away_root: optional second-machine drop clone; empty turns the feature off. Edit freely; the script reads this every run.",
+  "owner_name": "{{NAME}}",
+  "owner_key": "me",
+  "agent_owners": ["claude"],
+  "code_root": "{{CODE_ROOT}}",
+  "scan_roots": [],
+  "scan_ignore": ["Program Files", "WindowsApps", "System Volume Information", "node_modules"],
+  "work_roots": [],
+  "work_keywords": [],
+  "scheduled_tasks": {},
+  "skip_titles": [],
+  "skip_keywords": ["passport", "bank statement", "tax return", "medical", "password"],
+  "ideas_titles": [],
+  "ideas_keywords": ["startup", "business idea", "side project", "app idea"],
+  "projects": {
+    "Set Up My Brain": ["second brain", "vault", "obsidian", "brain.js", "hooks", "claude code"],
+    "Health": ["workout", "gym", "sleep", "running"]
+  },
+  "pipeline_prompts": [
+    "^REFRESH (FULL|CHANGES) ",
+    "^PROMPT\\n",
+    "^DAYEND ",
+    "^Reply with just OK$"
+  ],
+  "away_root": ""
+}

@@ -1,0 +1,6 @@
+{
+  "folder": "Sessions",
+  "format": "YYYY-MM-DD",
+  "template": "_claude/templates/Session",
+  "autorun": false
+}

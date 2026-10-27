@@ -1,0 +1,14 @@
+{
+  "attachmentFolderPath": "_attachments",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "0-Inbox",
+  "useMarkdownLinks": false,
+  "alwaysUpdateLinks": true,
+  "showUnsupportedFiles": false,
+  "userIgnoreFilters": [
+    "_claude/scripts/",
+    "_claude/import/",
+    "_claude/activity/"
+  ],
+  "newLinkFormat": "shortest"
+}

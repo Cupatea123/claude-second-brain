@@ -1,0 +1,29 @@
+# machine-local Obsidian state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/workspace*.json
+.trash/
+
+# raw, local-only data (never committed)
+_claude/activity/
+_claude/import/*
+!_claude/import/.gitkeep
+
+# dropped sources for /brain ingest: local only; the summary note in 3-Resources is what is kept
+0-Inbox/raw/*
+!0-Inbox/raw/README.md
+
+# sync cruft
+.tmp.driveupload/
+*.tmp
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# secrets never live here, belt and braces
+.env
+*.env
+*.key
+*.pem
+*credentials*
+secrets/

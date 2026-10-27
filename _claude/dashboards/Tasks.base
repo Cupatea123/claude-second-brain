@@ -1,0 +1,89 @@
+filters:
+  and:
+    - 'type == "task"'
+properties:
+  status:
+    displayName: Status
+  owner:
+    displayName: Owner
+  priority:
+    displayName: Pri
+  approval:
+    displayName: Approval
+  project:
+    displayName: Owner note
+  blocked_on:
+    displayName: "Blocked on"
+  updated:
+    displayName: Updated
+  completed:
+    displayName: Completed
+views:
+  - type: table
+    name: "Open"
+    filters:
+      and:
+        - 'status != "done"'
+        - 'status != "dropped"'
+    groupBy:
+      property: project
+      direction: ASC
+    order:
+      - file.name
+      - status
+      - owner
+      - priority
+      - approval
+      - updated
+  - type: table
+    name: "This project"
+    filters:
+      and:
+        - 'status != "done"'
+        - 'status != "dropped"'
+        - 'file.hasLink(this.file)'
+    order:
+      - file.name
+      - status
+      - owner
+      - priority
+      - approval
+      - updated
+  - type: table
+    name: "Claude next"
+    filters:
+      and:
+        - 'owner == "claude"'
+        - 'status == "ready"'
+        - 'approval == "none"'
+    order:
+      - priority
+      - file.name
+      - project
+      - created
+  - type: table
+    name: "Waiting on {{NAME}}"
+    filters:
+      and:
+        - 'status != "done"'
+        - 'status != "dropped"'
+        - or:
+            - 'owner == "me"'
+            - 'status == "blocked"'
+            - 'approval == "required"'
+    order:
+      - file.name
+      - project
+      - status
+      - blocked_on
+      - priority
+  - type: table
+    name: "Done"
+    filters:
+      and:
+        - 'status == "done"'
+    limit: 30
+    order:
+      - file.name
+      - project
+      - completed

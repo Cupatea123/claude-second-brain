@@ -1,0 +1,37 @@
+filters:
+  or:
+    - 'type == "resource"'
+    - 'type == "ops"'
+properties:
+  type:
+    displayName: Type
+  project:
+    displayName: Owner note
+  tool:
+    displayName: Tool
+  source:
+    displayName: Source
+  updated:
+    displayName: Updated
+views:
+  - type: table
+    name: "Resources"
+    filters:
+      and:
+        - 'type == "resource"'
+    groupBy:
+      property: project
+      direction: ASC
+    order:
+      - file.name
+      - source
+      - updated
+  - type: table
+    name: "Ops notes"
+    filters:
+      and:
+        - 'type == "ops"'
+    order:
+      - file.name
+      - tool
+      - updated

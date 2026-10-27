@@ -1,0 +1,49 @@
+filters:
+  or:
+    - 'type == "project"'
+    - 'type == "area"'
+properties:
+  status:
+    displayName: Status
+  priority:
+    displayName: Pri
+  cadence:
+    displayName: Cadence
+  next:
+    displayName: Next
+  updated:
+    displayName: Updated
+views:
+  - type: table
+    name: "All projects"
+    filters:
+      and:
+        - 'type == "project"'
+    groupBy:
+      property: status
+      direction: ASC
+    order:
+      - file.name
+      - priority
+      - next
+      - updated
+  - type: table
+    name: "Areas"
+    filters:
+      and:
+        - 'type == "area"'
+    order:
+      - file.name
+      - status
+      - cadence
+      - next
+      - updated
+  - type: cards
+    name: "Active"
+    filters:
+      and:
+        - 'status == "active"'
+    order:
+      - file.name
+      - next
+      - updated
