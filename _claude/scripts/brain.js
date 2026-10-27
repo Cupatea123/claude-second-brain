@@ -662,7 +662,7 @@ function writeChat(cfg, chat, counts) {
     counts.ideas++; return p;
   }
   const fm = { type: 'session', kind: 'chat', source: chat.source, chat_id: chat.chat_id, chat_date: date, project: `[[${cls.project}]]`, messages: chat.messages.length, digested: false, outcome: 'n/a', created: ISO(TODAY), updated: ISO(TODAY), tags: [] };
-  const L = [`# ${title}`, '', '## Summary', `Opened with: ${opener}`, `(${users.length} messages from ${OWNER.name}, ${assistants.length} replies; digest in /brain review)`, '', "## Malik's messages"];
+  const L = [`# ${title}`, '', '## Summary', `Opened with: ${opener}`, `(${users.length} messages from ${OWNER.name}, ${assistants.length} replies; digest in /brain review)`, '', `## ${OWNER.name}'s messages`];
   for (const m of users) L.push(`- **${m.date || date}** — ${redact(m.text).replace(/\r/g, '').replace(/\n+/g, ' ⏎ ').trim()}`);
   L.push('', "## Claude's replies (condensed)");
   for (const m of assistants) L.push(`- **${m.date || date}** — ${redact(m.text).replace(/\r/g, '').replace(/\n+/g, ' ').trim().slice(0, 400)}${m.text.length > 400 ? ' …' : ''}`);
